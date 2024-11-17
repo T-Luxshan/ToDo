@@ -53,16 +53,26 @@ function App() {
         }
       })
     )
+    
   }
 
   //  Delete task.
-  const deleteTask = (id) => {
-    deleteTask(id)
-    .then(res=>{
+  const deleteTaskById = async (id) => {
+    var isDeleted = false;
+    try{
       setToDoList(toDoList.filter((task) => task.id !== id));
+      await deleteTask(id);
+      isDeleted = true;
+    }
+    catch(err){
+      alert("Deletion failed");
+    }
+    if(isDeleted){
       alert("Deletion successful");
-    })
-    .catch(err=>alert("Deletion failed"));
+    }
+    else
+    alert("Deletion failed");
+
 
   }
    
@@ -86,7 +96,7 @@ function App() {
                         task={taskObj.task} 
                         id={taskObj.id}
                         completed={taskObj.completed}
-                        deleteTask={deleteTask}
+                        deleteTaskById={deleteTaskById}
                         taskCompleted={taskCompleted}
                     />
                   );
