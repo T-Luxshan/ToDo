@@ -1,0 +1,90 @@
+
+body{
+    /* background: linear-gradient(to left, #ffffcc, #fff5bd, #fff0b7, #ffebb1); */
+    background-color: #1D2028;
+}
+
+.addTask{
+  background-color: rgb(255, 255, 255);
+  border-radius:  1rem 1rem 0 0;
+  margin-left: 23rem;
+  margin-top: 5rem;
+  width: 100vh;
+
+}
+.list{
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 1rem;
+  border-radius: 0 0 1rem 1rem;
+  margin-left: 23rem;
+  margin-top: 0rem;
+  width: 100vh;
+
+}
+.addTask-head{
+  text-align: left;
+  margin: 1rem 10rem 1rem 0.5rem;
+  
+}
+
+.addBtn{
+  margin-left:16rem ;
+  margin-right: 0;
+  width: 4rem; 
+  height: 3rem; 
+  padding: 0px 0px 0 0px;
+}
+.textBox{
+  margin-left:1rem ;
+  width: 26rem; 
+  height: 3rem; 
+  padding: 10px; 
+}
+.listItem{
+  margin-left:2rem ;
+  margin-bottom: 0.2rem;
+  justify-content: center;
+  height: 3rem;
+  width: 21rem;
+}
+.listBtns{
+  display: inline;
+  margin-left:11rem;
+  height: 3rem;
+}
+.listBtn1, .listBtn2{
+  height: 3rem;
+}
+.listBtn2{
+  width: 3rem;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.App-link {
+  color: #f2f7fa;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
