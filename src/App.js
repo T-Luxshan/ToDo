@@ -12,20 +12,24 @@ function App() {
 
   const [toDoList, setToDoList] = useState([]); 
   const [newTask, setNewTask] = useState("");
-  const handleChane = (event) => {
+  const handleChange = (event) => {
     setNewTask(event.target.value);
   };
 
   const addTask = async () =>  {
+    if (newTask.trim() === "") return;
+
     const task = {
       id: toDoList.length === 0 ? 1 : toDoList[toDoList.length-1].id + 1,
       taskName: newTask,
       completed: false
     }
+    setNewTask("");
     console.log(task.id);
     console.log(task.taskName);
     console.log(task.completed);
     setToDoList([...toDoList, task])
+    
 
     // const response = await addNewTask(task.taskName, task.completed);
     // console.log(response);
@@ -53,7 +57,7 @@ function App() {
               <h1 style={{padding:"10px"}} className="addTask-head">To-Do App</h1>
                 <div className="row">
                   <div className="col-4">
-                      <input className='textBox' onChange={handleChane} placeholder="Add your new todo"/>&nbsp;
+                      <input className='textBox' value={newTask} onChange={handleChange} placeholder="Add your new todo"/>&nbsp;
                   </div>
                   <div className="col-4">
                       <button className='btn btn-outline-success addBtn' onClick={addTask}><FaPlus size={30} /></button>
