@@ -1,17 +1,27 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FaPlus } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import {Task} from './Task';
-import { addNewTask } from './service/ToDoService'; 
+import { addNewTask, fetchAllTask, deleteTask } from './service/ToDoService'; 
 
 import axios from "axios";
 
 function App() {
 
   const [toDoList, setToDoList] = useState([]); 
+  const [allTask, setAllTask] = useState([]);
   const [newTask, setNewTask] = useState("");
+
+  useEffect(()=> {
+     fetchAllTask()
+     .then(response=>{
+       console.log(response.data);
+       setToDoList(response.data)})
+     .catch(e=>console.log("fetching failed"));
+  }, [])
+
   const handleChange = (event) => {
     setNewTask(event.target.value);
   };
@@ -19,20 +29,23 @@ function App() {
   const addTask = async () =>  {
     if (newTask.trim() === "") return;
 
-    const task = {
+    const taskObj = {
       id: toDoList.length === 0 ? 1 : toDoList[toDoList.length-1].id + 1,
-      taskName: newTask,
+      task: newTask,
       completed: false
     }
     setNewTask("");
-    console.log(task.id);
-    console.log(task.taskName);
-    console.log(task.completed);
-    setToDoList([...toDoList, task])
+    // console.log(task.id);
+    // console.log(task.taskName);
+    // console.log(task.completed);
+    setToDoList([...toDoList, taskObj])
     
 
     // const response = await addNewTask(task.taskName, task.completed);
     // console.log(response);
+    addNewTask(taskObj.task, taskObj.completed)
+    .then(res=>alert("Task added successfully!"))
+    .catch(e=>alert("Failed to add task!"));
   }
 
   const taskCompleted = (id) => {
@@ -48,7 +61,13 @@ function App() {
   }
 
   const deleteTask = (id) => {
-    setToDoList(toDoList.filter((task) => task.id !== id));
+    deleteTask(id)
+    .then(res=>{
+      setToDoList(toDoList.filter((task) => task.id !== id));
+      alert("Deletion successful");
+    })
+    .catch(err=>alert("Deletion failed"));
+
   }
    
   return (
@@ -65,12 +84,12 @@ function App() {
                 </div>
             </div>
             <div className='list'>
-                {toDoList.map((task) => {
+                {toDoList.map((taskObj) => {
                   return ( 
                     <Task 
-                        taskName={task.taskName} 
-                        id={task.id}
-                        completed={task.completed}
+                        task={taskObj.task} 
+                        id={taskObj.id}
+                        completed={taskObj.completed}
                         deleteTask={deleteTask}
                         taskCompleted={taskCompleted}
                     />
