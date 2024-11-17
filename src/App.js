@@ -35,19 +35,14 @@ function App() {
       completed: false
     }
     setNewTask("");
-    // console.log(task.id);
-    // console.log(task.taskName);
-    // console.log(task.completed);
     setToDoList([...toDoList, taskObj])
-    
-
-    // const response = await addNewTask(task.taskName, task.completed);
-    // console.log(response);
+  
     addNewTask(taskObj.task, taskObj.completed)
     .then(res=>alert("Task added successfully!"))
     .catch(e=>alert("Failed to add task!"));
   }
 
+  // Complete task
   const taskCompleted = (id) => {
     setToDoList(
       toDoList.map((task) =>{
@@ -60,6 +55,7 @@ function App() {
     )
   }
 
+  //  Delete task.
   const deleteTask = (id) => {
     deleteTask(id)
     .then(res=>{
