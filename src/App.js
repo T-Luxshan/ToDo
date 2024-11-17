@@ -4,7 +4,7 @@ import { FaPlus } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import './App.css';
 import {Task} from './Task';
-import { addNewTask, fetchAllTask, deleteTask } from './service/ToDoService'; 
+import { addNewTask, fetchAllTask, deleteTask, completeTask } from './service/ToDoService'; 
 
 import axios from "axios";
 
@@ -53,7 +53,9 @@ function App() {
         }
       })
     )
-    
+    completeTask(id)
+    .then(res=>alert("Task Completed"))
+    .catch(err=>alert("Faild to mark as completed"));
   }
 
   //  Delete task.

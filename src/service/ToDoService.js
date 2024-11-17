@@ -15,4 +15,8 @@ export const fetchAllTask = () => {
 export const deleteTask = (id) => {
   return axios.delete(`${REST_API_BASE_URL}/${id}`)
 }
+
+export const completeTask = (id) => {
+  return axios.patch(`${REST_API_BASE_URL}/complete/${id}`)
+}
   
