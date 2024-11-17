@@ -1,11 +1,20 @@
+# React To-Do App
 
-This is simple web page that contain to-do-list created using react.js
+A simple To-Do application built using React.
 
-## Available Scripts
+## Features
+- Add tasks
+- Mark tasks as completed.
+- Delete tasks.
+- Fetch tasks from a backend API.
 
-In the project directory, you can run:
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/T-Luxshan/ToDo.git
+   cd <repository-directory>
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install dependencies and run the application:
+```bash
+npm install
+npm start
