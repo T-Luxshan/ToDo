@@ -13,6 +13,6 @@ export const fetchAllTask = () => {
 }
 
 export const deleteTask = (id) => {
-  return axios.delete(`${REST_API_BASE_URL}`, {id})
+  return axios.delete(`${REST_API_BASE_URL}/${id}`)
 }
   
