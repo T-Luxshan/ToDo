@@ -21,19 +21,21 @@ The app communicates with a backend API for:
 - Updating a task as completed.
 - Deleting a task.
 
-## Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/T-Luxshan/ToDo.git
-   cd <repository-directory>
-
-## Install dependencies and run the application:
-```bash
-npm install
-npm start
-```
 ## Prerequisites
 Ensure you have the following versions installed:
 
 - Node: v22.11.0
 - npm: 10.9.0
+
+## Setup Instructions
+Clone the repository:
+   ```bash
+   git clone https://github.com/T-Luxshan/ToDo.git
+   cd <repository-directory>
+```
+## Install dependencies and run the application:
+```bash
+npm install
+npm start
+```
+
