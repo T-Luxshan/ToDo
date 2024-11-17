@@ -8,6 +8,19 @@ A simple To-Do application built using React.
 - Delete tasks.
 - Fetch tasks from a backend API.
 
+## Technologies Used
+- React
+- Bootstrap
+- Axios
+
+## API Integration
+The app communicates with a backend API for:
+
+- Fetching all tasks.
+- Adding a new task.
+- Updating a task as completed.
+- Deleting a task.
+
 ## Setup Instructions
 1. Clone the repository:
    ```bash
@@ -18,3 +31,9 @@ A simple To-Do application built using React.
 ```bash
 npm install
 npm start
+```
+## Prerequisites
+Ensure you have the following versions installed:
+
+- Node: v22.11.0
+- npm: 10.9.0
